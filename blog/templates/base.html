@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./temp.css"> -->
+    <style>
+      body{
+        background-color: #8ec3eb;
+        color: white;
+       
+      }
+       h3{
+          color: #2a6592;
+        }
+        a{
+            text-align: center;
+            text-decoration: none;
+            color: green;
+        }
+        body {  font-family: 'Raleway',sans-serif; 
+        }
+        h1,h2{
+            text-align: center;
+            
+        }
+        img{
+            margin: 30px;
+        } 
+        #re{
+            color: red;
+        }   
+        table {
+        
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        }
+
+        td, th {
+        border: 1px solid #2a6592;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #2a6592;
+        }
+        h4{
+            margin-top: 60px;
+            text-align: center;
+        }
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        /* CSS */
+        .button-89 {
+          --b: 3px;   /* border thickness */
+          --s: .45em; /* size of the corner */
+          --color: #373B44;
+          
+          padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+          color: var(--color);
+          --_p: var(--s);
+          background:
+            conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+            var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+          transition: .3s linear, color 0s, background-color 0s;
+          outline: var(--b) solid #0000;
+          outline-offset: .6em;
+          font-size: 16px;
+
+          border: 0;
+
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+        }
+
+        .button-89:hover,
+        .button-89:focus-visible{
+          --_p: 0px;
+          outline-color: var(--color);
+          outline-offset: .05em;
+        }
+
+        .button-89:active {
+          background: var(--color);
+          color: #fff;
+        }
+
+        .root{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    background-color: red;
+    padding: 2%;
+    border: 2px solid gainsboro;
+    border-radius: 10px;
+}
+.input{
+    border: none;
+    width: 80%;
+    border: 2px solid rgb(243, 241, 241);
+}
+.textarea{
+    width: 80%;
+    height: 10%;
+    border: none;
+    border: 2px solid rgb(243, 241, 241);
+    overflow:unset;
+}
+.btn{
+    width: 20%;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    padding: 16px;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.btn:active{
+    background-color:#555;
+    color: #aaa;
+}
+
+
+
+
+        
+    </style>
+</head>
+<body>
+
+
+
+    
+    <h1>PLACMENT POINT</h1>
+    <h2>2023</h2>
+{% block content %}
+   <hr>
+   {% for i in post1 %}
+   <img src="{{i.image}}" class="center">
+   
+
+<table>
+    <tr>
+      <th>JOB</th>
+      <th>DETAILS</th>
+    </tr>
+    <tr>
+      <td>Company</td>
+      <td>{{i.Com}}</td>
+      
+    </tr>
+    <tr>
+      <td>Role</td>
+      <td>{{i.Rol}}</td>
+      
+    </tr>
+    <tr>
+      <td>Batch</td>
+      <td>2023</td>
+      
+    </tr>
+    <tr>
+      <td>Education</td>
+      <td>{{i.Edu}}</td>
+      
+    </tr>
+    <tr>
+      <td>Salary</td>
+      <td>{{i.Sal}}</td>
+      
+    </tr>
+    <tr>
+      <td>Experience</td>
+      <td>{{i.Exp}}</td>
+      
+    </tr>
+    <tr>
+      <td>Last date</td>
+      <td id="re">{{i.Las}}</td>
+      
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>{{i.Loc}}</td>
+      
+    </tr>
+  </table>
+  <h3>JOB DESCRIPTION: <br></h3>{{i.describe}} <br>
+  <h4><a href="{{i.create_at}}" class="button-89">APPLY NOW</a></h3>
+  <hr>
+  {% endfor %}
+  {% endblock content %}
+  
+  
+  
+  <form action="#" method="post">
+    {% csrf_token %}
+    <div class="root">
+      <h2>Leave a Reply</h2>
+      <p>Your email address will not be published. Required fields are marked *</p>
+    <h3>Comment *</h3>
+    <textarea name="area" id="comment" class="textarea" placeholder="enter a comment" required></textarea>
+    <br>
+    <label for="name">Name *</label>
+    <br>
+    <input type="text" id="name" name="name" class="input" placeholder="Enter your name" required>
+    <br>
+    <label for="email">Email *</label>
+    <br>
+    <input type="email" id="email" name="email" class="input" placeholder="Enter your email" required>
+    <button type="submit" class="btn">Submit</button>
+    </div>
+</form>
+  
+<p style="text-align:center;">Created by malli❤️</p>
+
+
+
+
+
+  <!-- <form action="" method="post">
+    {% csrf_token %}
+  Name:  <input type="text" name="name" required><br>
+  Email: <input type="email" name="email" required><br>
+  <textarea id="w3review" name="area" rows="4" cols="50"></textarea>
+  <button class="button-89" role="button">click</button> -->
+</form>
+</body>
+</html>

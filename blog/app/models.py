@@ -21,7 +21,7 @@ class Job(models.Model):
     create_at=models.CharField(max_length=10000)
     def __str__(self) -> str:
         return self.Com
-class Det(models.Model):
+class feedback(models.Model):
     name=models.CharField(max_length=100)
     email= models.CharField(max_length=100)
     #if dont mention null it showing some error
